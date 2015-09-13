@@ -1,8 +1,8 @@
 ---
 # This playbook deploys all sub playbooks
 
-- name: configure search heads
-  hosts: search_heads
+- name: configure heavy forwarder
+  hosts: heavy_forwarders
   user: root
   vars:
     # splunk binary to install
@@ -10,4 +10,4 @@
 
   roles:
     - common
-    - search_head
+    - heavy_forwarder

@@ -1,0 +1,13 @@
+---
+# This playbook deploys all sub playbooks
+
+- name: configure linux universal forwarders
+  hosts: universal_forwarders_lx
+  user: root
+  vars:
+    # splunk universal forwarder binary to install
+    splunk_uf_binary: 'splunkforwarder-6.1.4-233537-Linux-x86_64.tgz'
+
+  roles:
+    - common
+    - universal_forwarder_lx

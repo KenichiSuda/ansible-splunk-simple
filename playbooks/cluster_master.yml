@@ -1,8 +1,8 @@
 ---
 # This playbook deploys all sub playbooks
 
-- name: configure search heads
-  hosts: search_heads
+- name: configure cluster master
+  hosts: cluster_masters
   user: root
   vars:
     # splunk binary to install
@@ -10,4 +10,4 @@
 
   roles:
     - common
-    - search_head
+    - cluster_master

@@ -1,0 +1,31 @@
+---
+# tasks file for Azure
+# When complete this will likely leverage Azure ARM and ARM Module
+
+- name: Provision Splunk in Azure IaaS 
+  local_action:
+    module: Azure_ARM
+    key_name: "{{ item.value.key }}"
+    instance_type: "{{ item.value.size }}"
+    image: "{{ item.value.image }}"
+    region: "{{ item.value.region }}"
+    wait: true
+    count: "{{ item.value.count }}"
+    instance_tags:
+       Role: "{{ item.key }}"
+       Name: "{{ item.value.name }}"
+       Customer: "{{ customer }}"
+  register: azure
+  with_dict: cluster
+
+# - name: Output
+#   debug: msg="azure_arm.results = {{ item }}"
+#   with_items: azure_arm.results
+
+# - name: Output
+#   debug: msg="azure_arm.results.instances = {{ item.instances }}"
+#   with_items: azure_arm.results.instances
+
+# - name: Add new instance to host group
+#   add_host: hostname={{ item.public_dns_name }} resourcegroupname={{ azure_resource_group }}
+#   with_items: azure_arm.results.instances

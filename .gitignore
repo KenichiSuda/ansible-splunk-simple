@@ -1,0 +1,8 @@
+*.pem
+*.cer
+*.key
+*_rsa
+*.tgz
+*.deb
+*.rpm
+passwd
