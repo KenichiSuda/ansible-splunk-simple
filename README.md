@@ -49,7 +49,7 @@ This ansible package expectes your servers to be ubuntu base OS. The splunk bina
 
 **password:** buttercup
 
-**user:** https://...
+**user:** https://...:8443
 
 credentials are stored under `playbooks/splunk\_creds` 
 The cert/key pair deployed are in the same folder. Although I highly recommend you generate your on keypairs
